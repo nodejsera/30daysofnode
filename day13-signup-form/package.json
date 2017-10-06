@@ -1,0 +1,16 @@
+{
+  "name": "nj-signup",
+  "version": "1.0.0",
+  "description": "Sign up using node, express and mongo",
+  "main": "serve.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "author": "@rajatgarian",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.16.1",
+    "mongodb": "^2.2.30"
+  }
+}
