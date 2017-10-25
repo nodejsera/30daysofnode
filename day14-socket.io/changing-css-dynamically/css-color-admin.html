@@ -1,0 +1,86 @@
+<html> 
+<head> 
+	<link href="https://fonts.googleapis.com/css?family=Josefin+Sans|Josefin+Slab" rel="stylesheet">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.0.3/socket.io.js"></script>
+	<style>	
+		input[type=color]{
+			width:100%;
+			height:20%;
+			cursor: pointer;
+			border-color: 4px solid #f4b942;
+		}
+		
+		input[type=button]{
+			font-family: 'Josefin Slab', serif;
+			width : 100%;
+			border: none;
+			color: #fff;
+			font-size: 30px;
+			padding: 16px 32px;
+			text-decoration: none;
+			margin: 4px 2px;
+			border-radius: 15px;
+			font-weight:bold;
+			background-color: #3558a8;
+		}
+		input[type=button]:hover{
+			cursor: pointer;
+			background-color: #a4b9e8;
+			color:#fff;
+			
+		}
+		
+		h1{
+			font-family: 'Josefin Slab', serif;
+			text-align:center;
+			font-size: 40px;
+			font-weight:bold;
+		}
+		
+		
+		
+	</style>
+
+</head> 
+<body> 
+	<div class="row">
+		<div class="col-md-4">
+		</div>
+		<div class="col-md-4">
+
+
+			<span class="actions"> 
+				<h1> Click Here to Pick Color</h1>
+				<input id="color" name="Color Picker" type="color" value="Pick Color"/>
+				<input type="button" class="btn" id="btn" value="Emit an Event" /> 
+					
+			</span> 
+		</div>
+		<div class="col-md-4">
+		</div>
+	</div>
+		
+
+
+
+
+<script>
+  var socket = io.connect('http://localhost:3000');
+    ( function(){
+        console.log('I am a self executing function'); 
+     var  myfunc = function(){
+            console.log('admin emitted an event '); 
+            var color = $("#color").val();
+			console.log(color);
+			socket.emit('admin', { color: color });
+        }
+        document.getElementById('btn').onclick =  myfunc;
+    })();
+
+
+</script>
+
+</body> 
+</html> 

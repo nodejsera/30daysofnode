@@ -1,0 +1,67 @@
+<html>
+<head>
+	<link href="https://fonts.googleapis.com/css?family=Josefin+Sans|Josefin+Slab" rel="stylesheet">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.0.3/socket.io.js"></script>
+	<style>	
+		h2{
+			font-family: 'Josefin Slab', serif;
+			text-align:center;
+			font-size: 40px;
+			font-weight:bold;
+		}
+		p{
+			font-family: 'Josefin Sans', sans-serif;
+			font-size: 30px;
+			font-weight: normal;
+			padding : 30px;
+		}	
+		h3{
+			font-family: 'Josefin Sans', sans-serif;
+			font-size: 30px;
+			font-weight: normal;
+			padding : 30px;
+		}	
+	</style>
+</head>
+<body>
+
+	<div class="row">
+		<div class="col-md-2">
+		</div>
+		<div class="col-md-8">
+			<h2>Changing CSS Dynamically using Socket.io</h2>
+			<br>
+			<br>
+			<p style="background-color:#00aaff">A Normal </p>
+			<p style="background-color:#aaff00">text paragraph in which </p>
+			<p style="background-color:#aa00ff">we are using sockets to change CSS</p>
+			<p>dynamically from the admin panel</p>
+			<h3> But it will only change the CSS of content which is inside <code> p (paragraph) </code> tag.</h3>
+		
+		
+		</div>
+	
+
+		<div class="col-md-2">
+		</div>
+	</div>
+	
+
+
+	<script>
+		$(document).ready(function(){
+			  var socket = io.connect('http://localhost:3000');
+			  socket.on('color' , function(data) {
+					console.log(data); 
+					var key= "background-color";
+					var value = data.data.color;
+			        $("p").css(key, value);
+				})
+			  
+		});
+	</script>
+
+</body>
+</html>
