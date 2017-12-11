@@ -1,0 +1,34 @@
+{
+  "name": "day28-getting-tweets-using-node",
+  "version": "1.0.0",
+  "description": "Getting tweets from twitter using node.js , twitter's streaming api and sockets.",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "keywords": [
+    "nodejs",
+    "socket.io",
+    "twitter",
+    "getting",
+    "tweets",
+    "using",
+    "node.js",
+    "30",
+    "days",
+    "of",
+    "node",
+    "day",
+    "28"
+  ],
+  "author": "@nodejsera , @rajatgarian",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "express": "^4.16.2",
+    "mysql": "^2.15.0",
+    "socket.io": "^2.0.4",
+    "twitter": "^1.7.1"
+  }
+}
