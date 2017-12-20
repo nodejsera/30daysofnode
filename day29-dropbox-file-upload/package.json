@@ -1,0 +1,30 @@
+{
+  "name": "dropbox-file-upload",
+  "version": "1.0.0",
+  "description": "Uploading files on dropbox using it's API and node.js",
+  "main": "dropbox-file-upload.js",
+  "dependencies": {
+    "dropbox": "^2.5.12",
+    "prompt": "^1.0.0",
+    "request": "^2.83.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "dropbox",
+    "nodejs",
+    "upload",
+    "file",
+    "file",
+    "upload",
+    "in",
+    "node.js",
+    "dropbox",
+    "file",
+    "upload"
+  ],
+  "author": "@nodejsera , @rajatgarian",
+  "license": "ISC"
+}
