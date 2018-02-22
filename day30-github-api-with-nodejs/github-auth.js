@@ -12,7 +12,7 @@ var config = {
    client_id: process.env.github_client_id,
    client_secret: process.env.github_client_secret,
    redirect_url: 'http://localhost:3000/github/callback',
-   aurhorize_url:'https://github.com/login/oauth/authorize',
+   authorize_url:'https://github.com/login/oauth/authorize',
    token_url: 'https://github.com/login/oauth/access_token',
    user_url: 'https://api.github.com/user',
    scope: 'user'
@@ -28,7 +28,7 @@ app.get('/github/auth', function(req,res){
    return res.redirect(config.authorize_url);
 });
 
-router.get('/github/callback', function(req,res){
+app.get('/github/callback', function(req,res){
    // extract authorize code 
    var code = req.query.code
 
