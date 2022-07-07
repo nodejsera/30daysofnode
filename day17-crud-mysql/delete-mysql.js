@@ -1,26 +1,25 @@
-var mysql = require('mysql');
+const mysql = require('mysql');
 
-var connect =  mysql.createPool({
-host : 'localhost',
-user : 'root',
-password: '',
-database: 'test'
+const connect = mysql.createConnection({
+    host: 'localhost',
+    user: 'root',
+    password: 'root',
+    database: 'mysql'
 });
 
+const delete_r = 'DELETE FROM customers WHERE name = ?';
 
-var delete_R = 'DELETE FROM details WHERE name=?';
-//establishing connection
-connect.getConnection(function(err, connection){
-    
-  //Deleting a record from details
-  connection.query(delete_R,['regii'], function(err, res){
-    if(err) throw err;
-    else {
-        console.log('A record is removed !');
-    }
-  });
+connect.connect();
 
-//releasing connection
- connection.release();
-
+connect.query(delete_r, ['mustafa'], (err, res) => {
+    if(err)
+{
+    throw err;
+}
+else
+{
+    console.log('A record is Deleted!');
+}
 });
+
+connect.end();
