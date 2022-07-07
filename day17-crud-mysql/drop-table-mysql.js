@@ -1,26 +1,26 @@
-var mysql = require('mysql');
+const mysql = require('mysql');
 
-var connect =  mysql.createPool({
-host : 'localhost',
-user : 'root',
-password: '',
-database: 'test'
+const connect = mysql.createConnection({
+    host: 'localhost',
+    user: 'root',
+    password: 'root',
+    database: 'mysql'
 });
 
+const drop_r = 'Drop table customers';
 
-var drop_T = 'DROP table details';
-//establishing connection
-connect.getConnection(function(err, connection){
-    
-  //Drop the details table
-  connection.query(drop_T, function(err, res){
-    if(err) throw err;
-    else {
-        console.log('The details table is removed successfully');
+connect.connect();
+
+
+connect.query(drop_r, (err, res) => {
+    if(err)
+    {
+        throw err;
     }
-  });
-
-//releasing connection
- connection.release();
-
+    else
+    {
+        console.log('Table named Customers Dropped successfuly');
+    }
 });
+
+connect.end();
