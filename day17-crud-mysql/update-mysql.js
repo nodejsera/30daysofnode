@@ -1,26 +1,25 @@
-var mysql = require('mysql');
+const mysql = require('mysql');
 
-var connect =  mysql.createPool({
-host : 'localhost',
-user : 'root',
-password: '',
-database: 'test'
+const connect = mysql.createConnection({
+    host: 'localhost',
+    user: 'root',
+    password: 'root',
+    database: 'mysql'
 });
 
+const updata_r = 'UPDATE customers SET age = ? where name = ?';
 
-var update_R = 'UPDATE details SET age = ? WHERE name=?';
-//establishing connection
-connect.getConnection(function(err, connection){
-    
-  //Updating a record from details
-  connection.query(update_R,[25,'regii'], function(err, res){
-    if(err) throw err;
-    else {
-        console.log('Updated the age of regii !');
+connect.connect();
+
+connect.query(updata_r,[21, 'mustafa'], (err, res) => {
+    if(err)
+    {
+        throw err;
     }
-  });
-
-//releasing connection
- connection.release();
-
+    else
+    {
+        console.log(res);
+    }
 });
+
+connect.end();
