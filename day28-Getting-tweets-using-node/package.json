@@ -26,7 +26,7 @@
   "license": "ISC",
   "dependencies": {
     "body-parser": "^1.18.2",
-    "express": "^4.16.2",
+    "express": "^4.17.3",
     "mysql": "^2.15.0",
     "socket.io": "^2.0.4",
     "twitter": "^1.7.1"
